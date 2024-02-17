@@ -1,0 +1,3418 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'comparing_polars_with_pandas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcomparing_polars_with_pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/comparing_polars_with_pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting">Setting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check">Check</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting  started</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing">Reading &amp; writing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing">Writing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select">select</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-columns">add_columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">Group by</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combination">Combination</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-dataframe">Combining DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concat">Concat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join">Join</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#end">End</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>Perform basic data handling in pandas and polars and compare their code.<br />
+Getting started section refer to <a class="reference external" href="https://docs.pola.rs/user-guide/getting-started/">https://docs.pola.rs/user-guide/getting-started/</a>.<br />
+Using Data are taken from　<a class="reference external" href="https://www.shuwasystem.co.jp/support/7980html/5875.html">https://www.shuwasystem.co.jp/support/7980html/5875.html</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="setting">
+<h1>Setting<a class="headerlink" href="#setting" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ryujun1117/demo-data.git
+<span class="o">%</span><span class="k">cd</span> /content/demo-data/sample_100knocks/section-1
+<span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;demo-data&#39;...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Enumerating objects: 15, done.
+remote: Counting objects:   6% (1/15)
+remote: Counting objects:  13% (2/15)
+remote: Counting objects:  20% (3/15)
+remote: Counting objects:  26% (4/15)
+remote: Counting objects:  33% (5/15)
+remote: Counting objects:  40% (6/15)
+remote: Counting objects:  46% (7/15)
+remote: Counting objects:  53% (8/15)
+remote: Counting objects:  60% (9/15)
+remote: Counting objects:  66% (10/15)
+remote: Counting objects:  73% (11/15)
+remote: Counting objects:  80% (12/15)
+remote: Counting objects:  86% (13/15)
+remote: Counting objects:  93% (14/15)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>remote: Counting objects: 100% (15/15)
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects:   8% (1/12)
+remote: Compressing objects:  16% (2/12)
+remote: Compressing objects:  25% (3/12)
+remote: Compressing objects:  33% (4/12)
+remote: Compressing objects:  41% (5/12)
+remote: Compressing objects:  50% (6/12)
+remote: Compressing objects:  58% (7/12)
+remote: Compressing objects:  66% (8/12)
+remote: Compressing objects:  75% (9/12)
+remote: Compressing objects:  83% (10/12)
+remote: Compressing objects:  91% (11/12)
+remote: Compressing objects: 100% (12/12)
+remote: Compressing objects: 100% (12/12), done.
+Receiving objects:   6% (1/15)
+Receiving objects:  13% (2/15)
+Receiving objects:  20% (3/15)
+Receiving objects:  26% (4/15)
+Receiving objects:  33% (5/15)
+Receiving objects:  40% (6/15)
+Receiving objects:  46% (7/15)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  53% (8/15)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  60% (9/15)
+Receiving objects:  66% (10/15)
+Receiving objects:  73% (11/15)
+Receiving objects:  80% (12/15)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Receiving objects:  86% (13/15)
+remote: Total 15 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects:  93% (14/15)
+Receiving objects: 100% (15/15)
+Receiving objects: 100% (15/15), 341.57 KiB | 1.26 MiB/s, done.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;/content/demo-data/sample_100knocks/section-1&#39;
+/Users/sr/Src/Jupyter-Book/cheatbook/main/cheatbook
+README.md                           logo.png
+<span class=" -Color -Color-Blue">_build</span>/                             markdown-notebooks.md
+_config.yml                         markdown.md
+_toc.yml                            notebooks.ipynb
+comparing_polars_with_pandas.ipynb  references.bib
+<span class=" -Color -Color-Blue">demo-data</span>/                          requirements.txt
+intro.md
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/sr/Src/Jupyter-Book/cheatbook/lib/python3.9/site-packages/IPython/core/magics/osm.py:393: UserWarning: using bookmarks requires you to install the `pickleshare` library.
+  bkms = self.shell.db.get(&#39;bookmarks&#39;, {})
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">polars</span><span class="o">==</span><span class="m">0</span>.20.9<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip available: <span class=" -Color -Color-Red">22.3.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: polars==0.20.9 in /Users/sr/Src/Jupyter-Book/cheatbook/lib/python3.9/site-packages (0.20.9)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import">
+<h1>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="check">
+<h2>Check<a class="headerlink" href="#check" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5.3
+0.20.9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="getting-started">
+<h1>Getting  started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<p>Refer to <a class="reference external" href="https://docs.pola.rs/user-guide/getting-started/">https://docs.pola.rs/user-guide/getting-started/</a></p>
+<section id="reading-writing">
+<h2>Reading &amp; writing<a class="headerlink" href="#reading-writing" title="Link to this heading">#</a></h2>
+<section id="reading">
+<h3>Reading<a class="headerlink" href="#reading" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;customer_master.csv&quot;</span><span class="p">)</span>
+<span class="n">cm_pd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-1b0b264e-9218-472f-9c5f-59ef8a742571" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customer_id</th>
+      <th>customer_name</th>
+      <th>registration_date</th>
+      <th>customer_name_kana</th>
+      <th>email</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>birth</th>
+      <th>pref</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IK152942</td>
+      <td>平田 裕次郎</td>
+      <td>2019-01-01 00:25:33</td>
+      <td>ひらた ゆうじろう</td>
+      <td>hirata_yuujirou@example.com</td>
+      <td>M</td>
+      <td>29</td>
+      <td>1990/6/10</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TS808488</td>
+      <td>田村 詩織</td>
+      <td>2019-01-01 01:13:45</td>
+      <td>たむら しおり</td>
+      <td>tamura_shiori@example.com</td>
+      <td>F</td>
+      <td>33</td>
+      <td>1986/5/20</td>
+      <td>東京都</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AS834628</td>
+      <td>久野 由樹</td>
+      <td>2019-01-01 02:00:14</td>
+      <td>ひさの ゆき</td>
+      <td>hisano_yuki@example.com</td>
+      <td>F</td>
+      <td>63</td>
+      <td>1956/1/2</td>
+      <td>茨城県</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AS345469</td>
+      <td>鶴岡 薫</td>
+      <td>2019-01-01 04:48:22</td>
+      <td>つるおか かおる</td>
+      <td>tsuruoka_kaoru@example.com</td>
+      <td>M</td>
+      <td>74</td>
+      <td>1945/3/25</td>
+      <td>東京都</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GD892565</td>
+      <td>大内 高史</td>
+      <td>2019-01-01 04:54:51</td>
+      <td>おおうち たかし</td>
+      <td>oouchi_takashi@example.com</td>
+      <td>M</td>
+      <td>54</td>
+      <td>1965/8/5</td>
+      <td>千葉県</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1b0b264e-9218-472f-9c5f-59ef8a742571')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-1b0b264e-9218-472f-9c5f-59ef8a742571 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-1b0b264e-9218-472f-9c5f-59ef8a742571');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-c7e4bebc-c514-4056-98e4-bf6aff3fa8e7">
+  <button class="colab-df-quickchart" onclick="quickchart('df-c7e4bebc-c514-4056-98e4-bf6aff3fa8e7')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-c7e4bebc-c514-4056-98e4-bf6aff3fa8e7 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">cm_pl</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;customer_master.csv&quot;</span><span class="p">)</span>
+<span class="n">cm_pl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 9)</small><table border="1" class="dataframe"><thead><tr><th>customer_id</th><th>customer_name</th><th>registration_date</th><th>customer_name_kana</th><th>email</th><th>gender</th><th>age</th><th>birth</th><th>pref</th></tr><tr><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>i64</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>&quot;IK152942&quot;</td><td>&quot;平田 裕次郎&quot;</td><td>&quot;2019-01-01 00:…</td><td>&quot;ひらた ゆうじろう&quot;</td><td>&quot;hirata_yuujiro…</td><td>&quot;M&quot;</td><td>29</td><td>&quot;1990/6/10&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;TS808488&quot;</td><td>&quot;田村 詩織&quot;</td><td>&quot;2019-01-01 01:…</td><td>&quot;たむら しおり&quot;</td><td>&quot;tamura_shiori@…</td><td>&quot;F&quot;</td><td>33</td><td>&quot;1986/5/20&quot;</td><td>&quot;東京都&quot;</td></tr><tr><td>&quot;AS834628&quot;</td><td>&quot;久野 由樹&quot;</td><td>&quot;2019-01-01 02:…</td><td>&quot;ひさの ゆき&quot;</td><td>&quot;hisano_yuki@ex…</td><td>&quot;F&quot;</td><td>63</td><td>&quot;1956/1/2&quot;</td><td>&quot;茨城県&quot;</td></tr><tr><td>&quot;AS345469&quot;</td><td>&quot;鶴岡 薫&quot;</td><td>&quot;2019-01-01 04:…</td><td>&quot;つるおか かおる&quot;</td><td>&quot;tsuruoka_kaoru…</td><td>&quot;M&quot;</td><td>74</td><td>&quot;1945/3/25&quot;</td><td>&quot;東京都&quot;</td></tr><tr><td>&quot;GD892565&quot;</td><td>&quot;大内 高史&quot;</td><td>&quot;2019-01-01 04:…</td><td>&quot;おおうち たかし&quot;</td><td>&quot;oouchi_takashi…</td><td>&quot;M&quot;</td><td>54</td><td>&quot;1965/8/5&quot;</td><td>&quot;千葉県&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="writing">
+<h3>Writing<a class="headerlink" href="#writing" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">cm_pl</span><span class="o">.</span><span class="n">write_csv</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h2>
+<section id="select">
+<h3>select<a class="headerlink" href="#select" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span><span class="p">[[</span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span> <span class="s2">&quot;customer_name&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-e4bc66fe-a074-4995-980b-6dd09cc21013" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customer_id</th>
+      <th>customer_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IK152942</td>
+      <td>平田 裕次郎</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TS808488</td>
+      <td>田村 詩織</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AS834628</td>
+      <td>久野 由樹</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AS345469</td>
+      <td>鶴岡 薫</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GD892565</td>
+      <td>大内 高史</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4995</th>
+      <td>AS677229</td>
+      <td>平山 莉沙</td>
+    </tr>
+    <tr>
+      <th>4996</th>
+      <td>HD758694</td>
+      <td>中原 まひる</td>
+    </tr>
+    <tr>
+      <th>4997</th>
+      <td>PL538517</td>
+      <td>田端 由宇</td>
+    </tr>
+    <tr>
+      <th>4998</th>
+      <td>OA955088</td>
+      <td>瀬戸内 光</td>
+    </tr>
+    <tr>
+      <th>4999</th>
+      <td>HI349563</td>
+      <td>堀井 寛治</td>
+    </tr>
+  </tbody>
+</table>
+<p>5000 rows × 2 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e4bc66fe-a074-4995-980b-6dd09cc21013')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-e4bc66fe-a074-4995-980b-6dd09cc21013 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-e4bc66fe-a074-4995-980b-6dd09cc21013');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-ecd7401d-32d9-47dc-95f9-f23fa79cf9f3">
+  <button class="colab-df-quickchart" onclick="quickchart('df-ecd7401d-32d9-47dc-95f9-f23fa79cf9f3')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-ecd7401d-32d9-47dc-95f9-f23fa79cf9f3 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">cm_pl</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span> <span class="s2">&quot;customer_name&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5_000, 2)</small><table border="1" class="dataframe"><thead><tr><th>customer_id</th><th>customer_name</th></tr><tr><td>str</td><td>str</td></tr></thead><tbody><tr><td>&quot;IK152942&quot;</td><td>&quot;平田 裕次郎&quot;</td></tr><tr><td>&quot;TS808488&quot;</td><td>&quot;田村 詩織&quot;</td></tr><tr><td>&quot;AS834628&quot;</td><td>&quot;久野 由樹&quot;</td></tr><tr><td>&quot;AS345469&quot;</td><td>&quot;鶴岡 薫&quot;</td></tr><tr><td>&quot;GD892565&quot;</td><td>&quot;大内 高史&quot;</td></tr><tr><td>&quot;AS265381&quot;</td><td>&quot;笠井 洋介&quot;</td></tr><tr><td>&quot;HD739338&quot;</td><td>&quot;橋口 将也&quot;</td></tr><tr><td>&quot;HI791416&quot;</td><td>&quot;細井 麻由子&quot;</td></tr><tr><td>&quot;HD819739&quot;</td><td>&quot;塩見 はるか&quot;</td></tr><tr><td>&quot;OA239766&quot;</td><td>&quot;玉木 有起哉&quot;</td></tr><tr><td>&quot;HD743252&quot;</td><td>&quot;阿部 鉄洋&quot;</td></tr><tr><td>&quot;OA336650&quot;</td><td>&quot;安田 直人&quot;</td></tr><tr><td>&hellip;</td><td>&hellip;</td></tr><tr><td>&quot;OA148999&quot;</td><td>&quot;秋本 佑&quot;</td></tr><tr><td>&quot;AS123220&quot;</td><td>&quot;赤羽 瞬&quot;</td></tr><tr><td>&quot;AS531034&quot;</td><td>&quot;高倉 守&quot;</td></tr><tr><td>&quot;AS099984&quot;</td><td>&quot;黒谷 長利&quot;</td></tr><tr><td>&quot;TS675030&quot;</td><td>&quot;美輪 メイサ&quot;</td></tr><tr><td>&quot;OA000310&quot;</td><td>&quot;中園 蒼甫&quot;</td></tr><tr><td>&quot;HD644326&quot;</td><td>&quot;服部 さやか&quot;</td></tr><tr><td>&quot;AS677229&quot;</td><td>&quot;平山 莉沙&quot;</td></tr><tr><td>&quot;HD758694&quot;</td><td>&quot;中原 まひる&quot;</td></tr><tr><td>&quot;PL538517&quot;</td><td>&quot;田端 由宇&quot;</td></tr><tr><td>&quot;OA955088&quot;</td><td>&quot;瀬戸内 光&quot;</td></tr><tr><td>&quot;HI349563&quot;</td><td>&quot;堀井 寛治&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="filter">
+<h3>Filter<a class="headerlink" href="#filter" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;M&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;pref&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;石川県&quot;</span><span class="p">),</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7e80b3e6-a560-4b28-9163-37e2f69473af" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customer_id</th>
+      <th>customer_name</th>
+      <th>registration_date</th>
+      <th>customer_name_kana</th>
+      <th>email</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>birth</th>
+      <th>pref</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IK152942</td>
+      <td>平田 裕次郎</td>
+      <td>2019-01-01 00:25:33</td>
+      <td>ひらた ゆうじろう</td>
+      <td>hirata_yuujirou@example.com</td>
+      <td>M</td>
+      <td>29</td>
+      <td>1990/6/10</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>HI292376</td>
+      <td>浅野 鉄洋</td>
+      <td>2019-01-15 17:04:35</td>
+      <td>あさの てつひろ</td>
+      <td>asano_tetsuhiro@example.com</td>
+      <td>M</td>
+      <td>48</td>
+      <td>1971/5/25</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>755</th>
+      <td>HD453100</td>
+      <td>ト字 光洋</td>
+      <td>2019-02-04 13:03:17</td>
+      <td>とじ みつひろ</td>
+      <td>toji_mitsuhiro@example.com</td>
+      <td>M</td>
+      <td>57</td>
+      <td>1962/1/23</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>769</th>
+      <td>TS440617</td>
+      <td>亀田 真一</td>
+      <td>2019-02-05 07:57:32</td>
+      <td>かめだ しんいち</td>
+      <td>kameda_shinichi@example.com</td>
+      <td>M</td>
+      <td>33</td>
+      <td>1986/6/11</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>831</th>
+      <td>HI615448</td>
+      <td>小宮 芳正</td>
+      <td>2019-02-07 10:08:53</td>
+      <td>こみや よしまさ</td>
+      <td>komiya_yoshimasa@example.com</td>
+      <td>M</td>
+      <td>68</td>
+      <td>1950/10/17</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>1255</th>
+      <td>HD734247</td>
+      <td>横川 信吾</td>
+      <td>2019-02-23 23:52:29</td>
+      <td>よこかわ しんご</td>
+      <td>yokokawa_shingo@example.com</td>
+      <td>M</td>
+      <td>77</td>
+      <td>1942/1/30</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>1314</th>
+      <td>IK562556</td>
+      <td>小寺 陽介</td>
+      <td>2019-02-26 00:26:37</td>
+      <td>こでら ようすけ</td>
+      <td>kodera_yousuke@example.com</td>
+      <td>M</td>
+      <td>28</td>
+      <td>1990/12/17</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>1328</th>
+      <td>TS343738</td>
+      <td>黒川 陽介</td>
+      <td>2019-02-26 14:42:52</td>
+      <td>くろかわ ようすけ</td>
+      <td>kurokawa_yousuke@example.com</td>
+      <td>M</td>
+      <td>45</td>
+      <td>1974/2/5</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>1972</th>
+      <td>HI025685</td>
+      <td>藤村 菊生</td>
+      <td>2019-03-26 21:51:06</td>
+      <td>ふじむら きくお</td>
+      <td>fujimura_kikuo@example.com</td>
+      <td>M</td>
+      <td>45</td>
+      <td>1974/7/18</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2141</th>
+      <td>HI008566</td>
+      <td>有賀 洋介</td>
+      <td>2019-04-03 03:15:08</td>
+      <td>ありが ようすけ</td>
+      <td>ariga_yousuke@example.com</td>
+      <td>M</td>
+      <td>65</td>
+      <td>1953/8/14</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2337</th>
+      <td>PL368937</td>
+      <td>小沢 明宏</td>
+      <td>2019-04-10 23:08:19</td>
+      <td>おざわ あきひろ</td>
+      <td>ozawa_akihiro@example.com</td>
+      <td>M</td>
+      <td>46</td>
+      <td>1972/12/1</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2451</th>
+      <td>TS830677</td>
+      <td>大坂 健</td>
+      <td>2019-04-15 01:50:34</td>
+      <td>おおさか けん</td>
+      <td>oosaka_ken@example.com</td>
+      <td>M</td>
+      <td>26</td>
+      <td>1992/11/23</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2507</th>
+      <td>TS026649</td>
+      <td>岩下 洋介</td>
+      <td>2019-04-17 04:07:22</td>
+      <td>いわした ようすけ</td>
+      <td>iwashita_yousuke@example.com</td>
+      <td>M</td>
+      <td>50</td>
+      <td>1968/11/17</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2567</th>
+      <td>HI532336</td>
+      <td>高原 ひとり</td>
+      <td>2019-04-19 21:53:00</td>
+      <td>たかはら ひとり</td>
+      <td>takahara_hitori@example.com</td>
+      <td>M</td>
+      <td>63</td>
+      <td>1956/3/29</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2685</th>
+      <td>IK905330</td>
+      <td>早川 サダヲ</td>
+      <td>2019-04-24 17:59:00</td>
+      <td>はやかわ さだお</td>
+      <td>hayakawa_sadawo@example.com</td>
+      <td>M</td>
+      <td>52</td>
+      <td>1967/2/25</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2845</th>
+      <td>HI020478</td>
+      <td>有賀 健</td>
+      <td>2019-05-01 21:36:14</td>
+      <td>ありが けん</td>
+      <td>ariga_ken@example.com</td>
+      <td>M</td>
+      <td>43</td>
+      <td>1975/12/21</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>2903</th>
+      <td>PL553507</td>
+      <td>上村 努</td>
+      <td>2019-05-04 21:22:01</td>
+      <td>うえむら つとむ</td>
+      <td>uemura_tsutomu@example.com</td>
+      <td>M</td>
+      <td>63</td>
+      <td>1956/5/7</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>3126</th>
+      <td>HD849426</td>
+      <td>藤村 フミヤ</td>
+      <td>2019-05-13 14:22:06</td>
+      <td>ふじむら ふみや</td>
+      <td>fujimura_fumiya@example.com</td>
+      <td>M</td>
+      <td>24</td>
+      <td>1995/3/11</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>3527</th>
+      <td>OA283367</td>
+      <td>松野 功補</td>
+      <td>2019-05-30 08:46:25</td>
+      <td>まつの こうすけ</td>
+      <td>matsuno_kousuke@example.com</td>
+      <td>M</td>
+      <td>62</td>
+      <td>1957/2/23</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>3823</th>
+      <td>TS169717</td>
+      <td>片岡 洋介</td>
+      <td>2019-06-12 05:38:50</td>
+      <td>かたおか ようすけ</td>
+      <td>kataoka_yousuke@example.com</td>
+      <td>M</td>
+      <td>60</td>
+      <td>1959/5/9</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>4076</th>
+      <td>PL199478</td>
+      <td>石田 ヒロ</td>
+      <td>2019-06-22 11:08:57</td>
+      <td>いしだ ひろ</td>
+      <td>ishida_hiro@example.com</td>
+      <td>M</td>
+      <td>21</td>
+      <td>1997/10/4</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>4227</th>
+      <td>PL825454</td>
+      <td>篠山 幸平</td>
+      <td>2019-06-29 02:13:45</td>
+      <td>しのやま こうへい</td>
+      <td>shinoyama_kouhei@example.com</td>
+      <td>M</td>
+      <td>30</td>
+      <td>1989/4/19</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>4409</th>
+      <td>AS057808</td>
+      <td>渡部 祐基</td>
+      <td>2019-07-06 13:51:46</td>
+      <td>わたべ ゆうき</td>
+      <td>watabe_yuuki@example.com</td>
+      <td>M</td>
+      <td>31</td>
+      <td>1988/8/6</td>
+      <td>石川県</td>
+    </tr>
+    <tr>
+      <th>4838</th>
+      <td>GD280871</td>
+      <td>松元 直人</td>
+      <td>2019-07-24 17:40:28</td>
+      <td>まつもと なおと</td>
+      <td>matsumoto_naoto@example.com</td>
+      <td>M</td>
+      <td>77</td>
+      <td>1942/2/25</td>
+      <td>石川県</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7e80b3e6-a560-4b28-9163-37e2f69473af')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-7e80b3e6-a560-4b28-9163-37e2f69473af button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-7e80b3e6-a560-4b28-9163-37e2f69473af');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-36f88d5a-1d4d-478b-963b-bbcee987ca2c">
+  <button class="colab-df-quickchart" onclick="quickchart('df-36f88d5a-1d4d-478b-963b-bbcee987ca2c')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-36f88d5a-1d4d-478b-963b-bbcee987ca2c button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm_pl</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;M&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;pref&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;石川県&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (24, 9)</small><table border="1" class="dataframe"><thead><tr><th>customer_id</th><th>customer_name</th><th>registration_date</th><th>customer_name_kana</th><th>email</th><th>gender</th><th>age</th><th>birth</th><th>pref</th></tr><tr><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>i64</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>&quot;IK152942&quot;</td><td>&quot;平田 裕次郎&quot;</td><td>&quot;2019-01-01 00:…</td><td>&quot;ひらた ゆうじろう&quot;</td><td>&quot;hirata_yuujiro…</td><td>&quot;M&quot;</td><td>29</td><td>&quot;1990/6/10&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HI292376&quot;</td><td>&quot;浅野 鉄洋&quot;</td><td>&quot;2019-01-15 17:…</td><td>&quot;あさの てつひろ&quot;</td><td>&quot;asano_tetsuhir…</td><td>&quot;M&quot;</td><td>48</td><td>&quot;1971/5/25&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HD453100&quot;</td><td>&quot;ト字 光洋&quot;</td><td>&quot;2019-02-04 13:…</td><td>&quot;とじ みつひろ&quot;</td><td>&quot;toji_mitsuhiro…</td><td>&quot;M&quot;</td><td>57</td><td>&quot;1962/1/23&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;TS440617&quot;</td><td>&quot;亀田 真一&quot;</td><td>&quot;2019-02-05 07:…</td><td>&quot;かめだ しんいち&quot;</td><td>&quot;kameda_shinich…</td><td>&quot;M&quot;</td><td>33</td><td>&quot;1986/6/11&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HI615448&quot;</td><td>&quot;小宮 芳正&quot;</td><td>&quot;2019-02-07 10:…</td><td>&quot;こみや よしまさ&quot;</td><td>&quot;komiya_yoshima…</td><td>&quot;M&quot;</td><td>68</td><td>&quot;1950/10/17&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HD734247&quot;</td><td>&quot;横川 信吾&quot;</td><td>&quot;2019-02-23 23:…</td><td>&quot;よこかわ しんご&quot;</td><td>&quot;yokokawa_shing…</td><td>&quot;M&quot;</td><td>77</td><td>&quot;1942/1/30&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;IK562556&quot;</td><td>&quot;小寺 陽介&quot;</td><td>&quot;2019-02-26 00:…</td><td>&quot;こでら ようすけ&quot;</td><td>&quot;kodera_yousuke…</td><td>&quot;M&quot;</td><td>28</td><td>&quot;1990/12/17&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;TS343738&quot;</td><td>&quot;黒川 陽介&quot;</td><td>&quot;2019-02-26 14:…</td><td>&quot;くろかわ ようすけ&quot;</td><td>&quot;kurokawa_yousu…</td><td>&quot;M&quot;</td><td>45</td><td>&quot;1974/2/5&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HI025685&quot;</td><td>&quot;藤村 菊生&quot;</td><td>&quot;2019-03-26 21:…</td><td>&quot;ふじむら きくお&quot;</td><td>&quot;fujimura_kikuo…</td><td>&quot;M&quot;</td><td>45</td><td>&quot;1974/7/18&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HI008566&quot;</td><td>&quot;有賀 洋介&quot;</td><td>&quot;2019-04-03 03:…</td><td>&quot;ありが ようすけ&quot;</td><td>&quot;ariga_yousuke@…</td><td>&quot;M&quot;</td><td>65</td><td>&quot;1953/8/14&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;PL368937&quot;</td><td>&quot;小沢 明宏&quot;</td><td>&quot;2019-04-10 23:…</td><td>&quot;おざわ あきひろ&quot;</td><td>&quot;ozawa_akihiro@…</td><td>&quot;M&quot;</td><td>46</td><td>&quot;1972/12/1&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;TS830677&quot;</td><td>&quot;大坂 健&quot;</td><td>&quot;2019-04-15 01:…</td><td>&quot;おおさか けん&quot;</td><td>&quot;oosaka_ken@exa…</td><td>&quot;M&quot;</td><td>26</td><td>&quot;1992/11/23&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;TS026649&quot;</td><td>&quot;岩下 洋介&quot;</td><td>&quot;2019-04-17 04:…</td><td>&quot;いわした ようすけ&quot;</td><td>&quot;iwashita_yousu…</td><td>&quot;M&quot;</td><td>50</td><td>&quot;1968/11/17&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HI532336&quot;</td><td>&quot;高原 ひとり&quot;</td><td>&quot;2019-04-19 21:…</td><td>&quot;たかはら ひとり&quot;</td><td>&quot;takahara_hitor…</td><td>&quot;M&quot;</td><td>63</td><td>&quot;1956/3/29&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;IK905330&quot;</td><td>&quot;早川 サダヲ&quot;</td><td>&quot;2019-04-24 17:…</td><td>&quot;はやかわ さだお&quot;</td><td>&quot;hayakawa_sadaw…</td><td>&quot;M&quot;</td><td>52</td><td>&quot;1967/2/25&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HI020478&quot;</td><td>&quot;有賀 健&quot;</td><td>&quot;2019-05-01 21:…</td><td>&quot;ありが けん&quot;</td><td>&quot;ariga_ken@exam…</td><td>&quot;M&quot;</td><td>43</td><td>&quot;1975/12/21&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;PL553507&quot;</td><td>&quot;上村 努&quot;</td><td>&quot;2019-05-04 21:…</td><td>&quot;うえむら つとむ&quot;</td><td>&quot;uemura_tsutomu…</td><td>&quot;M&quot;</td><td>63</td><td>&quot;1956/5/7&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;HD849426&quot;</td><td>&quot;藤村 フミヤ&quot;</td><td>&quot;2019-05-13 14:…</td><td>&quot;ふじむら ふみや&quot;</td><td>&quot;fujimura_fumiy…</td><td>&quot;M&quot;</td><td>24</td><td>&quot;1995/3/11&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;OA283367&quot;</td><td>&quot;松野 功補&quot;</td><td>&quot;2019-05-30 08:…</td><td>&quot;まつの こうすけ&quot;</td><td>&quot;matsuno_kousuk…</td><td>&quot;M&quot;</td><td>62</td><td>&quot;1957/2/23&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;TS169717&quot;</td><td>&quot;片岡 洋介&quot;</td><td>&quot;2019-06-12 05:…</td><td>&quot;かたおか ようすけ&quot;</td><td>&quot;kataoka_yousuk…</td><td>&quot;M&quot;</td><td>60</td><td>&quot;1959/5/9&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;PL199478&quot;</td><td>&quot;石田 ヒロ&quot;</td><td>&quot;2019-06-22 11:…</td><td>&quot;いしだ ひろ&quot;</td><td>&quot;ishida_hiro@ex…</td><td>&quot;M&quot;</td><td>21</td><td>&quot;1997/10/4&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;PL825454&quot;</td><td>&quot;篠山 幸平&quot;</td><td>&quot;2019-06-29 02:…</td><td>&quot;しのやま こうへい&quot;</td><td>&quot;shinoyama_kouh…</td><td>&quot;M&quot;</td><td>30</td><td>&quot;1989/4/19&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;AS057808&quot;</td><td>&quot;渡部 祐基&quot;</td><td>&quot;2019-07-06 13:…</td><td>&quot;わたべ ゆうき&quot;</td><td>&quot;watabe_yuuki@e…</td><td>&quot;M&quot;</td><td>31</td><td>&quot;1988/8/6&quot;</td><td>&quot;石川県&quot;</td></tr><tr><td>&quot;GD280871&quot;</td><td>&quot;松元 直人&quot;</td><td>&quot;2019-07-24 17:…</td><td>&quot;まつもと なおと&quot;</td><td>&quot;matsumoto_naot…</td><td>&quot;M&quot;</td><td>77</td><td>&quot;1942/2/25&quot;</td><td>&quot;石川県&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="add-columns">
+<h3>add_columns<a class="headerlink" href="#add-columns" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;age_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">cm_pd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a9f36e8f-e96f-428f-9e9c-a0fbc0bf3a9a" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customer_id</th>
+      <th>customer_name</th>
+      <th>registration_date</th>
+      <th>customer_name_kana</th>
+      <th>email</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>birth</th>
+      <th>pref</th>
+      <th>age_avg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IK152942</td>
+      <td>平田 裕次郎</td>
+      <td>2019-01-01 00:25:33</td>
+      <td>ひらた ゆうじろう</td>
+      <td>hirata_yuujirou@example.com</td>
+      <td>M</td>
+      <td>29</td>
+      <td>1990/6/10</td>
+      <td>石川県</td>
+      <td>50.0532</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TS808488</td>
+      <td>田村 詩織</td>
+      <td>2019-01-01 01:13:45</td>
+      <td>たむら しおり</td>
+      <td>tamura_shiori@example.com</td>
+      <td>F</td>
+      <td>33</td>
+      <td>1986/5/20</td>
+      <td>東京都</td>
+      <td>50.0532</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AS834628</td>
+      <td>久野 由樹</td>
+      <td>2019-01-01 02:00:14</td>
+      <td>ひさの ゆき</td>
+      <td>hisano_yuki@example.com</td>
+      <td>F</td>
+      <td>63</td>
+      <td>1956/1/2</td>
+      <td>茨城県</td>
+      <td>50.0532</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AS345469</td>
+      <td>鶴岡 薫</td>
+      <td>2019-01-01 04:48:22</td>
+      <td>つるおか かおる</td>
+      <td>tsuruoka_kaoru@example.com</td>
+      <td>M</td>
+      <td>74</td>
+      <td>1945/3/25</td>
+      <td>東京都</td>
+      <td>50.0532</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GD892565</td>
+      <td>大内 高史</td>
+      <td>2019-01-01 04:54:51</td>
+      <td>おおうち たかし</td>
+      <td>oouchi_takashi@example.com</td>
+      <td>M</td>
+      <td>54</td>
+      <td>1965/8/5</td>
+      <td>千葉県</td>
+      <td>50.0532</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a9f36e8f-e96f-428f-9e9c-a0fbc0bf3a9a')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-a9f36e8f-e96f-428f-9e9c-a0fbc0bf3a9a button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-a9f36e8f-e96f-428f-9e9c-a0fbc0bf3a9a');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-a0880e84-a502-4255-b9d5-a98ff1121ba3">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a0880e84-a502-4255-b9d5-a98ff1121ba3')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-a0880e84-a502-4255-b9d5-a98ff1121ba3 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">cm_pl</span> <span class="o">=</span> <span class="n">cm_pl</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;age_avg&quot;</span><span class="p">))</span>
+<span class="n">cm_pl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 10)</small><table border="1" class="dataframe"><thead><tr><th>customer_id</th><th>customer_name</th><th>registration_date</th><th>customer_name_kana</th><th>email</th><th>gender</th><th>age</th><th>birth</th><th>pref</th><th>age_avg</th></tr><tr><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>i64</td><td>str</td><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;IK152942&quot;</td><td>&quot;平田 裕次郎&quot;</td><td>&quot;2019-01-01 00:…</td><td>&quot;ひらた ゆうじろう&quot;</td><td>&quot;hirata_yuujiro…</td><td>&quot;M&quot;</td><td>29</td><td>&quot;1990/6/10&quot;</td><td>&quot;石川県&quot;</td><td>50.0532</td></tr><tr><td>&quot;TS808488&quot;</td><td>&quot;田村 詩織&quot;</td><td>&quot;2019-01-01 01:…</td><td>&quot;たむら しおり&quot;</td><td>&quot;tamura_shiori@…</td><td>&quot;F&quot;</td><td>33</td><td>&quot;1986/5/20&quot;</td><td>&quot;東京都&quot;</td><td>50.0532</td></tr><tr><td>&quot;AS834628&quot;</td><td>&quot;久野 由樹&quot;</td><td>&quot;2019-01-01 02:…</td><td>&quot;ひさの ゆき&quot;</td><td>&quot;hisano_yuki@ex…</td><td>&quot;F&quot;</td><td>63</td><td>&quot;1956/1/2&quot;</td><td>&quot;茨城県&quot;</td><td>50.0532</td></tr><tr><td>&quot;AS345469&quot;</td><td>&quot;鶴岡 薫&quot;</td><td>&quot;2019-01-01 04:…</td><td>&quot;つるおか かおる&quot;</td><td>&quot;tsuruoka_kaoru…</td><td>&quot;M&quot;</td><td>74</td><td>&quot;1945/3/25&quot;</td><td>&quot;東京都&quot;</td><td>50.0532</td></tr><tr><td>&quot;GD892565&quot;</td><td>&quot;大内 高史&quot;</td><td>&quot;2019-01-01 04:…</td><td>&quot;おおうち たかし&quot;</td><td>&quot;oouchi_takashi…</td><td>&quot;M&quot;</td><td>54</td><td>&quot;1965/8/5&quot;</td><td>&quot;千葉県&quot;</td><td>50.0532</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="group-by">
+<h3>Group by<a class="headerlink" href="#group-by" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span><span class="p">[[</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-bed28ebc-bea8-4f8b-b0e1-5966a76c0347" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>F</th>
+      <td>49.957746</td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>50.147515</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bed28ebc-bea8-4f8b-b0e1-5966a76c0347')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-bed28ebc-bea8-4f8b-b0e1-5966a76c0347 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-bed28ebc-bea8-4f8b-b0e1-5966a76c0347');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-2fe47d15-177d-483c-9067-7a4d1239793f">
+  <button class="colab-df-quickchart" onclick="quickchart('df-2fe47d15-177d-483c-9067-7a4d1239793f')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-2fe47d15-177d-483c-9067-7a4d1239793f button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">cm_pl</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="n">maintain_order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (2, 3)</small><table border="1" class="dataframe"><thead><tr><th>gender</th><th>count</th><th>mean</th></tr><tr><td>str</td><td>u32</td><td>f64</td></tr></thead><tbody><tr><td>&quot;M&quot;</td><td>2515</td><td>50.147515</td></tr><tr><td>&quot;F&quot;</td><td>2485</td><td>49.957746</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="combination">
+<h3>Combination<a class="headerlink" href="#combination" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;age_index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">cm_pd</span><span class="p">[</span><span class="s2">&quot;age_avg&quot;</span><span class="p">]</span>
+<span class="n">cm_pd</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;age_avg&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-aa664885-b66f-414b-a369-4ccd25f263d2" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customer_id</th>
+      <th>customer_name</th>
+      <th>registration_date</th>
+      <th>customer_name_kana</th>
+      <th>email</th>
+      <th>gender</th>
+      <th>birth</th>
+      <th>pref</th>
+      <th>age_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IK152942</td>
+      <td>平田 裕次郎</td>
+      <td>2019-01-01 00:25:33</td>
+      <td>ひらた ゆうじろう</td>
+      <td>hirata_yuujirou@example.com</td>
+      <td>M</td>
+      <td>1990/6/10</td>
+      <td>石川県</td>
+      <td>0.579384</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TS808488</td>
+      <td>田村 詩織</td>
+      <td>2019-01-01 01:13:45</td>
+      <td>たむら しおり</td>
+      <td>tamura_shiori@example.com</td>
+      <td>F</td>
+      <td>1986/5/20</td>
+      <td>東京都</td>
+      <td>0.659299</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AS834628</td>
+      <td>久野 由樹</td>
+      <td>2019-01-01 02:00:14</td>
+      <td>ひさの ゆき</td>
+      <td>hisano_yuki@example.com</td>
+      <td>F</td>
+      <td>1956/1/2</td>
+      <td>茨城県</td>
+      <td>1.258661</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AS345469</td>
+      <td>鶴岡 薫</td>
+      <td>2019-01-01 04:48:22</td>
+      <td>つるおか かおる</td>
+      <td>tsuruoka_kaoru@example.com</td>
+      <td>M</td>
+      <td>1945/3/25</td>
+      <td>東京都</td>
+      <td>1.478427</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GD892565</td>
+      <td>大内 高史</td>
+      <td>2019-01-01 04:54:51</td>
+      <td>おおうち たかし</td>
+      <td>oouchi_takashi@example.com</td>
+      <td>M</td>
+      <td>1965/8/5</td>
+      <td>千葉県</td>
+      <td>1.078852</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4995</th>
+      <td>AS677229</td>
+      <td>平山 莉沙</td>
+      <td>2019-07-31 16:52:26</td>
+      <td>ひらやま りさ</td>
+      <td>hirayama_risa@example.com</td>
+      <td>F</td>
+      <td>1941/10/17</td>
+      <td>愛知県</td>
+      <td>1.538363</td>
+    </tr>
+    <tr>
+      <th>4996</th>
+      <td>HD758694</td>
+      <td>中原 まひる</td>
+      <td>2019-07-31 19:09:26</td>
+      <td>なかはら まひる</td>
+      <td>nakahara_mahiru@example.com</td>
+      <td>F</td>
+      <td>1991/11/13</td>
+      <td>茨城県</td>
+      <td>0.539426</td>
+    </tr>
+    <tr>
+      <th>4997</th>
+      <td>PL538517</td>
+      <td>田端 由宇</td>
+      <td>2019-07-31 19:30:05</td>
+      <td>たばた ゆう</td>
+      <td>tabata_yuu1@example.com</td>
+      <td>F</td>
+      <td>1945/12/28</td>
+      <td>愛知県</td>
+      <td>1.458448</td>
+    </tr>
+    <tr>
+      <th>4998</th>
+      <td>OA955088</td>
+      <td>瀬戸内 光</td>
+      <td>2019-07-31 22:32:08</td>
+      <td>せとうち ひかる</td>
+      <td>setouchi_hikaru@example.com</td>
+      <td>F</td>
+      <td>1944/4/9</td>
+      <td>宮城県</td>
+      <td>1.498406</td>
+    </tr>
+    <tr>
+      <th>4999</th>
+      <td>HI349563</td>
+      <td>堀井 寛治</td>
+      <td>2019-07-31 22:49:49</td>
+      <td>ほりい かんじ</td>
+      <td>horii_kanji@example.com</td>
+      <td>M</td>
+      <td>1998/2/6</td>
+      <td>広島県</td>
+      <td>0.419554</td>
+    </tr>
+  </tbody>
+</table>
+<p>5000 rows × 9 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-aa664885-b66f-414b-a369-4ccd25f263d2')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-aa664885-b66f-414b-a369-4ccd25f263d2 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-aa664885-b66f-414b-a369-4ccd25f263d2');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-8111f447-3853-46bb-829a-fb0547be57ee">
+  <button class="colab-df-quickchart" onclick="quickchart('df-8111f447-3853-46bb-829a-fb0547be57ee')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-8111f447-3853-46bb-829a-fb0547be57ee button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">cm_pl</span><span class="o">.</span><span class="n">with_columns</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;age_avg&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;age_index&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">([</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;age_avg&quot;</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5_000, 9)</small><table border="1" class="dataframe"><thead><tr><th>customer_id</th><th>customer_name</th><th>registration_date</th><th>customer_name_kana</th><th>email</th><th>gender</th><th>birth</th><th>pref</th><th>age_index</th></tr><tr><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;IK152942&quot;</td><td>&quot;平田 裕次郎&quot;</td><td>&quot;2019-01-01 00:…</td><td>&quot;ひらた ゆうじろう&quot;</td><td>&quot;hirata_yuujiro…</td><td>&quot;M&quot;</td><td>&quot;1990/6/10&quot;</td><td>&quot;石川県&quot;</td><td>0.579384</td></tr><tr><td>&quot;TS808488&quot;</td><td>&quot;田村 詩織&quot;</td><td>&quot;2019-01-01 01:…</td><td>&quot;たむら しおり&quot;</td><td>&quot;tamura_shiori@…</td><td>&quot;F&quot;</td><td>&quot;1986/5/20&quot;</td><td>&quot;東京都&quot;</td><td>0.659299</td></tr><tr><td>&quot;AS834628&quot;</td><td>&quot;久野 由樹&quot;</td><td>&quot;2019-01-01 02:…</td><td>&quot;ひさの ゆき&quot;</td><td>&quot;hisano_yuki@ex…</td><td>&quot;F&quot;</td><td>&quot;1956/1/2&quot;</td><td>&quot;茨城県&quot;</td><td>1.258661</td></tr><tr><td>&quot;AS345469&quot;</td><td>&quot;鶴岡 薫&quot;</td><td>&quot;2019-01-01 04:…</td><td>&quot;つるおか かおる&quot;</td><td>&quot;tsuruoka_kaoru…</td><td>&quot;M&quot;</td><td>&quot;1945/3/25&quot;</td><td>&quot;東京都&quot;</td><td>1.478427</td></tr><tr><td>&quot;GD892565&quot;</td><td>&quot;大内 高史&quot;</td><td>&quot;2019-01-01 04:…</td><td>&quot;おおうち たかし&quot;</td><td>&quot;oouchi_takashi…</td><td>&quot;M&quot;</td><td>&quot;1965/8/5&quot;</td><td>&quot;千葉県&quot;</td><td>1.078852</td></tr><tr><td>&quot;AS265381&quot;</td><td>&quot;笠井 洋介&quot;</td><td>&quot;2019-01-01 05:…</td><td>&quot;かさい ようすけ&quot;</td><td>&quot;kasai_yousuke@…</td><td>&quot;M&quot;</td><td>&quot;1949/8/9&quot;</td><td>&quot;岡山県&quot;</td><td>1.378533</td></tr><tr><td>&quot;HD739338&quot;</td><td>&quot;橋口 将也&quot;</td><td>&quot;2019-01-01 05:…</td><td>&quot;はしぐち まさや&quot;</td><td>&quot;hashiguchi_mas…</td><td>&quot;M&quot;</td><td>&quot;1974/6/4&quot;</td><td>&quot;神奈川県&quot;</td><td>0.899043</td></tr><tr><td>&quot;HI791416&quot;</td><td>&quot;細井 麻由子&quot;</td><td>&quot;2019-01-01 07:…</td><td>&quot;ほそい まゆこ&quot;</td><td>&quot;hosoi_mayuko@e…</td><td>&quot;F&quot;</td><td>&quot;1989/7/25&quot;</td><td>&quot;三重県&quot;</td><td>0.599362</td></tr><tr><td>&quot;HD819739&quot;</td><td>&quot;塩見 はるか&quot;</td><td>&quot;2019-01-01 08:…</td><td>&quot;しおみ はるか&quot;</td><td>&quot;shiomi_haruka@…</td><td>&quot;F&quot;</td><td>&quot;1969/10/8&quot;</td><td>&quot;神奈川県&quot;</td><td>0.978958</td></tr><tr><td>&quot;OA239766&quot;</td><td>&quot;玉木 有起哉&quot;</td><td>&quot;2019-01-01 08:…</td><td>&quot;たまき ゆきや&quot;</td><td>&quot;tamaki_yukiya@…</td><td>&quot;M&quot;</td><td>&quot;1997/1/12&quot;</td><td>&quot;東京都&quot;</td><td>0.439532</td></tr><tr><td>&quot;HD743252&quot;</td><td>&quot;阿部 鉄洋&quot;</td><td>&quot;2019-01-01 15:…</td><td>&quot;あべ てつひろ&quot;</td><td>&quot;abe_tetsuhiro@…</td><td>&quot;M&quot;</td><td>&quot;1967/11/8&quot;</td><td>&quot;福岡県&quot;</td><td>1.018916</td></tr><tr><td>&quot;OA336650&quot;</td><td>&quot;安田 直人&quot;</td><td>&quot;2019-01-01 15:…</td><td>&quot;やすだ なおと&quot;</td><td>&quot;yasuda_naoto@e…</td><td>&quot;M&quot;</td><td>&quot;1950/8/13&quot;</td><td>&quot;神奈川県&quot;</td><td>1.358554</td></tr><tr><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td><td>&hellip;</td></tr><tr><td>&quot;OA148999&quot;</td><td>&quot;秋本 佑&quot;</td><td>&quot;2019-07-31 08:…</td><td>&quot;あきもと たすく&quot;</td><td>&quot;akimoto_tasuku…</td><td>&quot;M&quot;</td><td>&quot;1973/2/24&quot;</td><td>&quot;大阪府&quot;</td><td>0.919022</td></tr><tr><td>&quot;AS123220&quot;</td><td>&quot;赤羽 瞬&quot;</td><td>&quot;2019-07-31 08:…</td><td>&quot;あかばね しゅん&quot;</td><td>&quot;akabane_shun@e…</td><td>&quot;F&quot;</td><td>&quot;1996/1/24&quot;</td><td>&quot;石川県&quot;</td><td>0.459511</td></tr><tr><td>&quot;AS531034&quot;</td><td>&quot;高倉 守&quot;</td><td>&quot;2019-07-31 12:…</td><td>&quot;たかくら まもる&quot;</td><td>&quot;takakura_mamor…</td><td>&quot;M&quot;</td><td>&quot;1989/7/9&quot;</td><td>&quot;熊本県&quot;</td><td>0.599362</td></tr><tr><td>&quot;AS099984&quot;</td><td>&quot;黒谷 長利&quot;</td><td>&quot;2019-07-31 14:…</td><td>&quot;くろたに ながとし&quot;</td><td>&quot;kurotani_nagat…</td><td>&quot;M&quot;</td><td>&quot;1980/2/29&quot;</td><td>&quot;広島県&quot;</td><td>0.779171</td></tr><tr><td>&quot;TS675030&quot;</td><td>&quot;美輪 メイサ&quot;</td><td>&quot;2019-07-31 14:…</td><td>&quot;みわ めいさ&quot;</td><td>&quot;miwa_meisa@exa…</td><td>&quot;F&quot;</td><td>&quot;1986/3/11&quot;</td><td>&quot;東京都&quot;</td><td>0.659299</td></tr><tr><td>&quot;OA000310&quot;</td><td>&quot;中園 蒼甫&quot;</td><td>&quot;2019-07-31 15:…</td><td>&quot;なかぞの そうすけ&quot;</td><td>&quot;nakazono_sousu…</td><td>&quot;M&quot;</td><td>&quot;1996/7/8&quot;</td><td>&quot;神奈川県&quot;</td><td>0.459511</td></tr><tr><td>&quot;HD644326&quot;</td><td>&quot;服部 さやか&quot;</td><td>&quot;2019-07-31 15:…</td><td>&quot;はっとり さやか&quot;</td><td>&quot;hattori_sayaka…</td><td>&quot;F&quot;</td><td>&quot;1943/2/11&quot;</td><td>&quot;佐賀県&quot;</td><td>1.518384</td></tr><tr><td>&quot;AS677229&quot;</td><td>&quot;平山 莉沙&quot;</td><td>&quot;2019-07-31 16:…</td><td>&quot;ひらやま りさ&quot;</td><td>&quot;hirayama_risa@…</td><td>&quot;F&quot;</td><td>&quot;1941/10/17&quot;</td><td>&quot;愛知県&quot;</td><td>1.538363</td></tr><tr><td>&quot;HD758694&quot;</td><td>&quot;中原 まひる&quot;</td><td>&quot;2019-07-31 19:…</td><td>&quot;なかはら まひる&quot;</td><td>&quot;nakahara_mahir…</td><td>&quot;F&quot;</td><td>&quot;1991/11/13&quot;</td><td>&quot;茨城県&quot;</td><td>0.539426</td></tr><tr><td>&quot;PL538517&quot;</td><td>&quot;田端 由宇&quot;</td><td>&quot;2019-07-31 19:…</td><td>&quot;たばた ゆう&quot;</td><td>&quot;tabata_yuu1@ex…</td><td>&quot;F&quot;</td><td>&quot;1945/12/28&quot;</td><td>&quot;愛知県&quot;</td><td>1.458448</td></tr><tr><td>&quot;OA955088&quot;</td><td>&quot;瀬戸内 光&quot;</td><td>&quot;2019-07-31 22:…</td><td>&quot;せとうち ひかる&quot;</td><td>&quot;setouchi_hikar…</td><td>&quot;F&quot;</td><td>&quot;1944/4/9&quot;</td><td>&quot;宮城県&quot;</td><td>1.498406</td></tr><tr><td>&quot;HI349563&quot;</td><td>&quot;堀井 寛治&quot;</td><td>&quot;2019-07-31 22:…</td><td>&quot;ほりい かんじ&quot;</td><td>&quot;horii_kanji@ex…</td><td>&quot;M&quot;</td><td>&quot;1998/2/6&quot;</td><td>&quot;広島県&quot;</td><td>0.419554</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<section id="combining-dataframe">
+<h2>Combining DataFrame<a class="headerlink" href="#combining-dataframe" title="Link to this heading">#</a></h2>
+<section id="concat">
+<h3>Concat<a class="headerlink" href="#concat" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">tran1_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;transaction_1.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tran1_pd</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">tran2_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;transaction_2.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tran2_pd</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">tran_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tran1_pd</span><span class="p">,</span> <span class="n">tran2_pd</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tran_pd</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5000, 4)
+(1786, 4)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6786, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">tran1_pl</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;transaction_1.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tran1_pl</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">tran2_pl</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;transaction_2.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tran2_pl</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">tran_pl</span> <span class="o">=</span> <span class="n">tran1_pl</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">tran2_pl</span><span class="p">)</span>
+<span class="n">tran_pl</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5000, 4)
+(1786, 4)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6786, 4)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="join">
+<h3>Join<a class="headerlink" href="#join" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas</span>
+<span class="n">joined_pd</span> <span class="o">=</span> <span class="n">tran_pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cm_pd</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">joined_pd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-82154be9-7a02-41a4-a570-ac3080976359" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>transaction_id</th>
+      <th>price</th>
+      <th>payment_date</th>
+      <th>customer_id</th>
+      <th>customer_name</th>
+      <th>registration_date</th>
+      <th>customer_name_kana</th>
+      <th>email</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>birth</th>
+      <th>pref</th>
+      <th>age_avg</th>
+      <th>age_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>T0000000113</td>
+      <td>210000</td>
+      <td>2019-02-01 01:36:57</td>
+      <td>PL563502</td>
+      <td>井本 芳正</td>
+      <td>2019-01-07 14:34:35</td>
+      <td>いもと よしまさ</td>
+      <td>imoto_yoshimasa@example.com</td>
+      <td>M</td>
+      <td>30</td>
+      <td>1989/7/15</td>
+      <td>熊本県</td>
+      <td>50.0532</td>
+      <td>0.599362</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>T0000000114</td>
+      <td>50000</td>
+      <td>2019-02-01 01:37:23</td>
+      <td>HD678019</td>
+      <td>三船 六郎</td>
+      <td>2019-01-27 18:00:11</td>
+      <td>みふね ろくろう</td>
+      <td>mifune_rokurou@example.com</td>
+      <td>M</td>
+      <td>73</td>
+      <td>1945/11/29</td>
+      <td>京都府</td>
+      <td>50.0532</td>
+      <td>1.458448</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>T0000000115</td>
+      <td>120000</td>
+      <td>2019-02-01 02:34:19</td>
+      <td>HD298120</td>
+      <td>山根 小雁</td>
+      <td>2019-01-11 08:16:02</td>
+      <td>やまね こがん</td>
+      <td>yamane_kogan@example.com</td>
+      <td>M</td>
+      <td>42</td>
+      <td>1977/5/17</td>
+      <td>茨城県</td>
+      <td>50.0532</td>
+      <td>0.839107</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>T0000000116</td>
+      <td>210000</td>
+      <td>2019-02-01 02:47:23</td>
+      <td>IK452215</td>
+      <td>池田 菜摘</td>
+      <td>2019-01-10 05:07:38</td>
+      <td>いけだ なつみ</td>
+      <td>ikeda_natsumi@example.com</td>
+      <td>F</td>
+      <td>47</td>
+      <td>1972/3/17</td>
+      <td>兵庫県</td>
+      <td>50.0532</td>
+      <td>0.939001</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>T0000000117</td>
+      <td>170000</td>
+      <td>2019-02-01 04:33:46</td>
+      <td>PL542865</td>
+      <td>栗田 憲一</td>
+      <td>2019-01-25 06:46:05</td>
+      <td>くりた けんいち</td>
+      <td>kurita_kenichi@example.com</td>
+      <td>M</td>
+      <td>74</td>
+      <td>1944/12/17</td>
+      <td>長崎県</td>
+      <td>50.0532</td>
+      <td>1.478427</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-82154be9-7a02-41a4-a570-ac3080976359')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-82154be9-7a02-41a4-a570-ac3080976359 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-82154be9-7a02-41a4-a570-ac3080976359');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-dca157af-8655-46f3-b931-6c18c2174762">
+  <button class="colab-df-quickchart" onclick="quickchart('df-dca157af-8655-46f3-b931-6c18c2174762')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-dca157af-8655-46f3-b931-6c18c2174762 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># polars</span>
+<span class="n">joined_pl</span> <span class="o">=</span> <span class="n">tran_pl</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cm_pl</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">joined_pl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 13)</small><table border="1" class="dataframe"><thead><tr><th>transaction_id</th><th>price</th><th>payment_date</th><th>customer_id</th><th>customer_name</th><th>registration_date</th><th>customer_name_kana</th><th>email</th><th>gender</th><th>age</th><th>birth</th><th>pref</th><th>age_avg</th></tr><tr><td>str</td><td>i64</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>i64</td><td>str</td><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;T0000000113&quot;</td><td>210000</td><td>&quot;2019-02-01 01:…</td><td>&quot;PL563502&quot;</td><td>&quot;井本 芳正&quot;</td><td>&quot;2019-01-07 14:…</td><td>&quot;いもと よしまさ&quot;</td><td>&quot;imoto_yoshimas…</td><td>&quot;M&quot;</td><td>30</td><td>&quot;1989/7/15&quot;</td><td>&quot;熊本県&quot;</td><td>50.0532</td></tr><tr><td>&quot;T0000000114&quot;</td><td>50000</td><td>&quot;2019-02-01 01:…</td><td>&quot;HD678019&quot;</td><td>&quot;三船 六郎&quot;</td><td>&quot;2019-01-27 18:…</td><td>&quot;みふね ろくろう&quot;</td><td>&quot;mifune_rokurou…</td><td>&quot;M&quot;</td><td>73</td><td>&quot;1945/11/29&quot;</td><td>&quot;京都府&quot;</td><td>50.0532</td></tr><tr><td>&quot;T0000000115&quot;</td><td>120000</td><td>&quot;2019-02-01 02:…</td><td>&quot;HD298120&quot;</td><td>&quot;山根 小雁&quot;</td><td>&quot;2019-01-11 08:…</td><td>&quot;やまね こがん&quot;</td><td>&quot;yamane_kogan@e…</td><td>&quot;M&quot;</td><td>42</td><td>&quot;1977/5/17&quot;</td><td>&quot;茨城県&quot;</td><td>50.0532</td></tr><tr><td>&quot;T0000000116&quot;</td><td>210000</td><td>&quot;2019-02-01 02:…</td><td>&quot;IK452215&quot;</td><td>&quot;池田 菜摘&quot;</td><td>&quot;2019-01-10 05:…</td><td>&quot;いけだ なつみ&quot;</td><td>&quot;ikeda_natsumi@…</td><td>&quot;F&quot;</td><td>47</td><td>&quot;1972/3/17&quot;</td><td>&quot;兵庫県&quot;</td><td>50.0532</td></tr><tr><td>&quot;T0000000117&quot;</td><td>170000</td><td>&quot;2019-02-01 04:…</td><td>&quot;PL542865&quot;</td><td>&quot;栗田 憲一&quot;</td><td>&quot;2019-01-25 06:…</td><td>&quot;くりた けんいち&quot;</td><td>&quot;kurita_kenichi…</td><td>&quot;M&quot;</td><td>74</td><td>&quot;1944/12/17&quot;</td><td>&quot;長崎県&quot;</td><td>50.0532</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="end">
+<h1>End<a class="headerlink" href="#end" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="markdown-notebooks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting">Setting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#install">Install</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check">Check</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting  started</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-writing">Reading &amp; writing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing">Writing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select">select</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-columns">add_columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">Group by</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combination">Combination</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-dataframe">Combining DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concat">Concat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#join">Join</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#end">End</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
